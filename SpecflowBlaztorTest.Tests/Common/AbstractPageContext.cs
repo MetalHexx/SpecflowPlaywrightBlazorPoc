@@ -25,5 +25,15 @@ namespace SpecflowBlaztorTest.Tests.Common
             Page = Page ?? await Browser.NewPageAsync();
             await Page.GotoAsync("https://localhost:7264/");
         }
+
+        public ILocator GetByDataAttribute(string dataAttributeValue)
+        {
+            return Page.Locator($"data-test-id={dataAttributeValue}");
+        }
+
+        public async Task ClickByDataAttributeAsync(string dataAttributeValue)
+        {
+            await GetByDataAttribute(dataAttributeValue).ClickAsync();
+        }
     }
 }
