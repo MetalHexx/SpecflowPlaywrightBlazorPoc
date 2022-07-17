@@ -4,13 +4,16 @@ using TechTalk.SpecFlow;
 
 namespace SpecflowBlaztorTest.Tests.Common
 {
-    //TODO: Make the abstract hook externally configurable
+    /// <summary>
+    /// Provides some generalized hook functionality
+    /// </summary>
     public abstract class AbstractHooks
     {
         public virtual async Task RegisterPlayWright<T>(IObjectContainer container) where T : AbstractPageContext, new()
         {
             var playwright = await Playwright.CreateAsync();
 
+            //TODO: Make playwright externally configurable
             var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
                 Headless = false,

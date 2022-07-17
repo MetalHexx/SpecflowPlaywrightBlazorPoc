@@ -1,6 +1,9 @@
 ﻿using Microsoft.Playwright;
 namespace SpecflowBlaztorTest.Tests.Common
 {
+    /// <summary>
+    /// Provides some base context functionality
+    /// </summary>
     public abstract class AbstractPageContext
     {
         public abstract string PagePath { get; }
