@@ -13,7 +13,7 @@ namespace SpecflowBlaztorTest.Tests.Hooks
         [BeforeScenario()]
         public async Task BeforeBasketScenario(IObjectContainer container)
         {
-            await base.RegisterPlayWright<WeatherForecastPageContext>(container);
+            await RegisterPlayWright<WeatherForecastPageContext>(container);
         }
 
         [AfterScenario]

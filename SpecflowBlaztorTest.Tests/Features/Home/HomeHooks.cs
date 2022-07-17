@@ -13,7 +13,7 @@ namespace SpecflowBlaztorTest.Tests.Features.Navigation
         [BeforeScenario()]
         public async Task BeforeBasketScenario(IObjectContainer container)
         {
-            await base.RegisterPlayWright<HomePageContext>(container);
+            await RegisterPlayWright<HomePageContext>(container);
         }
 
         [AfterScenario]
