@@ -18,14 +18,14 @@ namespace SpecflowBlaztorTest.Tests.Common
             await Page.GotoAsync(path);
         }
 
-        public ILocator GetByDataAttribute(string dataAttributeValue, string dataAttributeKey= "data-test-id")
+        public ILocator GetSelectorByDataAttribute(string dataAttributeValue, string dataAttributeKey= "data-test-id")
         {
             return Page.Locator($"{dataAttributeKey}={dataAttributeValue}");
         }
 
         public async Task ClickByDataAttributeAsync(string dataAttributeValue)
         {
-            await GetByDataAttribute(dataAttributeValue).ClickAsync();
+            await GetSelectorByDataAttribute(dataAttributeValue).ClickAsync();
         }
     }
 }
