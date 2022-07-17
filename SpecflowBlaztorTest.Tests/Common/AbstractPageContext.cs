@@ -26,9 +26,9 @@ namespace SpecflowBlaztorTest.Tests.Common
             await Page.GotoAsync("https://localhost:7264/");
         }
 
-        public ILocator GetByDataAttribute(string dataAttributeValue)
+        public ILocator GetByDataAttribute(string dataAttributeValue, string dataAttributeKey= "data-test-id")
         {
-            return Page.Locator($"data-test-id={dataAttributeValue}");
+            return Page.Locator($"{dataAttributeKey}={dataAttributeValue}");
         }
 
         public async Task ClickByDataAttributeAsync(string dataAttributeValue)
