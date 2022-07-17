@@ -1,29 +1,21 @@
 ﻿using Microsoft.Playwright;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace SpecflowBlaztorTest.Tests.Common
 {
     public abstract class AbstractPageContext
     {
         public abstract string PagePath { get; }
-        public IPage Page { get; set; }
+        public IPage Page { get; private set; }
         public IBrowser Browser { get; set; }
 
         public async Task NavigateAsync()
         {
-            Page = Page ?? await Browser.NewPageAsync();
-
-            await Page.GotoAsync(PagePath);
+            await NavigateToPathAsync(PagePath);
         }
-
-        public async Task NavigateHomeAsync()
+        
+        public async Task NavigateToPathAsync(string path)
         {
             Page = Page ?? await Browser.NewPageAsync();
-            await Page.GotoAsync("https://localhost:7264/");
+            await Page.GotoAsync(path);
         }
 
         public ILocator GetByDataAttribute(string dataAttributeValue, string dataAttributeKey= "data-test-id")

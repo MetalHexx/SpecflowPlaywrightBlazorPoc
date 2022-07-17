@@ -5,8 +5,8 @@ namespace SpecflowBlaztorTest.Tests.PageObjects
 {
     public class HomePageContext : AbstractPageContext
     {
-        public override string PagePath => "https://localhost:7264/";
-        public const string CounterPagePath = "https://localhost:7264/counter";
+        public override string PagePath => PagePaths.Home;
+        public const string CounterPagePath = PagePaths.Counter;
 
         public async Task ClickCounterNavLink() => await Page.ClickAsync("#counter-nav-link");
         public async Task ClickHomeNavLink() => await Page.ClickAsync("#home-nav-link");

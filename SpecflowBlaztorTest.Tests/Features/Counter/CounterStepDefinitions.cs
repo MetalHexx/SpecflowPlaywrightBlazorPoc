@@ -9,47 +9,47 @@ namespace SpecflowBlaztorTest.Tests
     [Scope(Feature = "Counter")]
     public class CounterStepDefinitions
     {
-        private readonly CounterPageContext _pageContext;
+        private readonly CounterPageContext _counterContext;
         private int _originalValue;
-        public CounterStepDefinitions(CounterPageContext page)
+        public CounterStepDefinitions(CounterPageContext counterContext)
         {
-            _pageContext = page;
+            _counterContext = counterContext;
         }
 
         [Given(@"I am on any page in the application")]
         public async Task GivenIAmOnAnyPageInTheApplication()
         {
-            await _pageContext.NavigateHomeAsync();
+            await _counterContext.NavigateHomeAsync();
         }
 
         [When(@"when I click on the counter item in the left hand nav")]
         public async Task WhenWhenIClickOnTheCounterItemInTheLeftHandNav()
         {
-            await _pageContext.ClickCounterNavLinkAsync();
+            await _counterContext.ClickCounterNavLinkAsync();
         }
 
         [Then(@"I am taken to the counter page")]
         public async Task ThenIAmTakenToTheCounterPage()
         {
-            var title = await _pageContext.GetPageTitleAsync();
+            var title = await _counterContext.GetPageTitleAsync();
 
-            _pageContext.Page.Url.Should().Be(_pageContext.PagePath);
+            _counterContext.Page.Url.Should().Be(_counterContext.PagePath);
         }
 
         [Given(@"I am on the counter page")]
         public async Task GivenIAmOnTheCounterPage()
         {
-            await _pageContext.NavigateAsync();
+            await _counterContext.NavigateAsync();
         }
 
         [When(@"I click the button (.*) times")]
         public async Task WhenIClickTheButtonTimes(int timesToClick)
         {
-            _originalValue = await _pageContext.GetCounterValueAsync();
+            _originalValue = await _counterContext.GetCounterValueAsync();
 
             for (int i = 0; i < timesToClick; i++)
             {
-                await _pageContext.ClickIncrementButtonAsync();
+                await _counterContext.ClickIncrementButtonAsync();
             }
         }
 
@@ -57,7 +57,7 @@ namespace SpecflowBlaztorTest.Tests
         [Then(@"the current counter should increase by (.*)")]
         public async void ThenTheCurrentCounterShouldIncreaseBy(int expectedIncrease)
         {
-            var actualCounterValue = await _pageContext.GetCounterValueAsync();
+            var actualCounterValue = await _counterContext.GetCounterValueAsync();
             var actualIncrease = actualCounterValue - _originalValue;
 
             actualIncrease.Should().Be(expectedIncrease);
@@ -66,7 +66,7 @@ namespace SpecflowBlaztorTest.Tests
         [Then(@"the current counter should be (.*)")]
         public async Task ThenTheCurrentCounterShouldBe(int expectedValue)
         {
-            var actualCounterValue = await _pageContext.GetCounterValueAsync();
+            var actualCounterValue = await _counterContext.GetCounterValueAsync();
 
             actualCounterValue.Should().Be(expectedValue);
         }

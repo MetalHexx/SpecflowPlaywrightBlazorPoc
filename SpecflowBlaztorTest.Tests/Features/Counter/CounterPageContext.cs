@@ -4,9 +4,9 @@ namespace SpecflowBlaztorTest.Tests.PageObjects
 {
     public class CounterPageContext : AbstractPageContext
     {
-        public override string PagePath => "https://localhost:7264/counter";
-
-        //Alternate example of getting an element by data-attribute
+        public override string PagePath => PagePaths.Counter;
+        public string HomePagePath => PagePaths.Home;
+        public async Task NavigateHomeAsync() => await NavigateToPathAsync(HomePagePath);
         public async Task ClickIncrementButtonAsync() => await ClickByDataAttributeAsync("increment-count-button");
         public async Task<int> GetCounterValueAsync() => int.Parse(await Page.InnerTextAsync("#counter-value"));
         public async Task ClickCounterNavLinkAsync() => await Page.ClickAsync("#counter-nav-link");

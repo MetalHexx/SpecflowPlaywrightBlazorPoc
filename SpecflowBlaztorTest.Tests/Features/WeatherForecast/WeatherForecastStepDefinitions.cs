@@ -9,36 +9,37 @@ namespace SpecflowBlaztorTest.Tests
     [Scope(Feature = "WeatherForecast")]
     public class WeatherForecastStepDefinitions
     {
-        private readonly WeatherForecastPageContext _pageContext;
-        public WeatherForecastStepDefinitions(WeatherForecastPageContext pageContext)
+        private readonly WeatherForecastPageContext _weatherContext;
+
+        public WeatherForecastStepDefinitions(WeatherForecastPageContext weatherContext)
         {
-            _pageContext = pageContext;
+            _weatherContext = weatherContext;
         }
 
         [Given(@"I am on any page in the application")]
         public async Task GivenIAmOnAnyPageInTheApplication()
         {
-            await _pageContext.NavigateHomeAsync();
+            await _weatherContext.NavigateHomeAsync();
         }
 
         [When(@"when I click on the weather forecast item in the left hand nav")]
         public async Task WhenWhenIClickOnTheWeatherForecastItemInTheLeftHandNav()
         {
-            await _pageContext.ClickWeatherForecastNavLinkAsync();
+            await _weatherContext.ClickWeatherForecastNavLinkAsync();
         }
 
         [Then(@"I am taken to the weather forecast page")]
         public async Task ThenIAmTakenToTheWeatherForecastPage()
         {
-            var title = await _pageContext.GetPageTitleAsync();
+            var title = await _weatherContext.GetPageTitleAsync();
 
-            _pageContext.Page.Url.Should().Be(_pageContext.PagePath);
+            _weatherContext.Page.Url.Should().Be(_weatherContext.PagePath);
         }
 
         [Given(@"I am on the weather forecast page")]
         public async Task GivenIAmOnTheWeatherForecastPage()
         {
-            await _pageContext.NavigateAsync();
+            await _weatherContext.NavigateAsync();
         }
 
         [When(@"the page loads")]
@@ -50,7 +51,7 @@ namespace SpecflowBlaztorTest.Tests
         [Then(@"I see a table of weather forecasts")]
         public async Task ThenISeeATableOfWeatherForecasts()
         {
-            var table =  await _pageContext.GetTableAsync();
+            var table =  await _weatherContext.GetTableAsync();
 
             table.Should().NotBeNull();
         }
