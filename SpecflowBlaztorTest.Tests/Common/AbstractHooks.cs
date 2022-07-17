@@ -4,6 +4,7 @@ using TechTalk.SpecFlow;
 
 namespace SpecflowBlaztorTest.Tests.Common
 {
+    //TODO: Make the abstract hook externally configurable
     public abstract class AbstractHooks
     {
         public virtual async Task RegisterPlayWright<T>(IObjectContainer container) where T : AbstractPageContext, new()
