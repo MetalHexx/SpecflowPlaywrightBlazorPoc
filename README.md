@@ -1,5 +1,5 @@
 # A Specflow Playwright Blazor POC
-An experiment using Specflow for BDD style test cases in combination with PlayWright for browser based test automation on a Blazor WASM web application.
+An experiment using Specflow for BDD style test cases in combination with PlayWright for browser based test automation on a Blazor web application.
 
 ## Command line usage:
 - To run the application, in the SpecflowBlazorTest directory, run: dotnet run
