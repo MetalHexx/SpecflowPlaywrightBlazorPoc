@@ -11,11 +11,9 @@ Scenario: User should be navigated to the counter page using the left hand navig
 Scenario: Counter should increase when button is clicked
 	Given I am on the counter page
 	When I click the button 1 times
-	Then the current counter should increase by 1
-	And the current counter should be 1
+	Then the current counter should be 1
 
 Scenario: Counter should increase to 3 when the button is clicked 3 times
 	Given I am on the counter page
 	When I click the button 3 times
-	Then the current counter should increase by 3
-	And the current counter should be 3
+	Then the current counter should be 3

@@ -53,16 +53,6 @@ namespace SpecflowBlaztorTest.Tests
             }
         }
 
-
-        [Then(@"the current counter should increase by (.*)")]
-        public async void ThenTheCurrentCounterShouldIncreaseBy(int expectedIncrease)
-        {
-            var actualCounterValue = await _counterContext.GetCounterValueAsync();
-            var actualIncrease = actualCounterValue - _originalValue;
-
-            actualIncrease.Should().Be(expectedIncrease);
-        }
-
         [Then(@"the current counter should be (.*)")]
         public async Task ThenTheCurrentCounterShouldBe(int expectedValue)
         {
