@@ -1,10 +1,5 @@
 ﻿using BoDi;
 using Microsoft.Playwright;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace SpecflowBlaztorTest.Tests.Common
@@ -21,8 +16,10 @@ namespace SpecflowBlaztorTest.Tests.Common
                 SlowMo = 0,
             });
 
-            var context = new T();
-            context.Browser = browser;
+            var context = new T
+            {
+                Browser = browser
+            };
 
             container.RegisterInstanceAs(playwright);
             container.RegisterInstanceAs(browser);
@@ -32,13 +29,11 @@ namespace SpecflowBlaztorTest.Tests.Common
         [AfterScenario]
         public virtual async Task AfterScenario(IObjectContainer container)
         {
+            var playwright = container.Resolve<IPlaywright>();
             var browser = container.Resolve<IBrowser>();
 
-            if (browser is not null)
-            {
-                await browser.CloseAsync();
-            }
-            var playwright = container.Resolve<IPlaywright>();
+            await browser?.CloseAsync();
+            var _ = browser?.DisposeAsync();
             playwright?.Dispose();
         }
     }
