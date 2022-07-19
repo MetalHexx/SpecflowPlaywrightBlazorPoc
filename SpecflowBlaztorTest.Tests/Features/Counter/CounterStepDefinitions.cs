@@ -1,6 +1,5 @@
 using FluentAssertions;
 using SpecflowBlaztorTest.Tests.PageObjects;
-using System;
 using TechTalk.SpecFlow;
 
 namespace SpecflowBlaztorTest.Tests

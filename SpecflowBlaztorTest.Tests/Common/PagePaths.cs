@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SpecflowBlaztorTest.Tests.Common
+﻿namespace SpecflowBlaztorTest.Tests.Common
 {
     //TODO: Move the base URL somewhere else that is configurable per env
     public static class PagePaths

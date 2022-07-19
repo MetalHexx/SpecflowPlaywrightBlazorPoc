@@ -1,5 +1,4 @@
 ﻿using BoDi;
-using Microsoft.Playwright;
 using SpecflowBlaztorTest.Tests.Common;
 using SpecflowBlaztorTest.Tests.PageObjects;
 using TechTalk.SpecFlow;
