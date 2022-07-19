@@ -9,9 +9,9 @@ namespace SpecflowBlaztorTest.Tests
     [Scope(Feature = "Counter")]
     public class CounterStepDefinitions
     {
-        private readonly CounterPageContext _counterContext;
+        private readonly CounterFixture _counterContext;
         private int _originalValue;
-        public CounterStepDefinitions(CounterPageContext counterContext)
+        public CounterStepDefinitions(CounterFixture counterContext)
         {
             _counterContext = counterContext;
         }

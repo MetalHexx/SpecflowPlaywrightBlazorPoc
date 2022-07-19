@@ -8,12 +8,12 @@ namespace SpecflowBlaztorTest.Tests.Hooks
 {
     [Binding]
     [Scope(Feature = "WeatherForecast")]
-    public class WeatherForecastHooks: AbstractHooks
+    public class WeatherForecastHooks: PlaywrightHooks
     {
         [BeforeScenario()]
-        public async Task BeforeBasketScenario(IObjectContainer container)
+        public async Task BeforeScenario(IObjectContainer container)
         {
-            await RegisterPlayWright<WeatherForecastPageContext>(container);
+            await RegisterPlayWright<WeatherForecastFixture>(container);
         }
 
         [AfterScenario]

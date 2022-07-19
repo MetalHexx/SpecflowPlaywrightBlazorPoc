@@ -2,7 +2,7 @@
 
 namespace SpecflowBlaztorTest.Tests.PageObjects
 {
-    public class CounterPageContext : AbstractPageContext
+    public class CounterFixture : PlaywrightFixture
     {
         public override string PagePath => PagePaths.Counter;
         public string HomePagePath => PagePaths.Home;

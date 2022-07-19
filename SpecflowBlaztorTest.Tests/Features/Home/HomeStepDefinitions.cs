@@ -1,6 +1,5 @@
 using FluentAssertions;
 using SpecflowBlaztorTest.Tests.PageObjects;
-using System;
 using TechTalk.SpecFlow;
 
 namespace SpecflowBlaztorTest.Tests
@@ -9,9 +8,9 @@ namespace SpecflowBlaztorTest.Tests
     [Scope(Feature = "Home")]
     public class HomeStepDefinitions
     {
-        private readonly HomePageContext _pageContext;
+        private readonly HomeFixture _pageContext;
 
-        public HomeStepDefinitions(HomePageContext pageContext)
+        public HomeStepDefinitions(HomeFixture pageContext)
         {
             _pageContext = pageContext;
         }

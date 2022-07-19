@@ -1,6 +1,5 @@
 using FluentAssertions;
 using SpecflowBlaztorTest.Tests.PageObjects;
-using System;
 using TechTalk.SpecFlow;
 
 namespace SpecflowBlaztorTest.Tests
@@ -9,9 +8,9 @@ namespace SpecflowBlaztorTest.Tests
     [Scope(Feature = "WeatherForecast")]
     public class WeatherForecastStepDefinitions
     {
-        private readonly WeatherForecastPageContext _weatherContext;
+        private readonly WeatherForecastFixture _weatherContext;
 
-        public WeatherForecastStepDefinitions(WeatherForecastPageContext weatherContext)
+        public WeatherForecastStepDefinitions(WeatherForecastFixture weatherContext)
         {
             _weatherContext = weatherContext;
         }
