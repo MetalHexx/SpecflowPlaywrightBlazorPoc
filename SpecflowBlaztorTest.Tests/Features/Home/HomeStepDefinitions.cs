@@ -1,6 +1,5 @@
 using FluentAssertions;
 using SpecflowBlaztorTest.Tests.PageObjects;
-using System;
 using TechTalk.SpecFlow;
 
 namespace SpecflowBlaztorTest.Tests
@@ -9,34 +8,34 @@ namespace SpecflowBlaztorTest.Tests
     [Scope(Feature = "Home")]
     public class HomeStepDefinitions
     {
-        private readonly HomePageContext _pageContext;
+        private readonly HomeFixture _fixture;
 
-        public HomeStepDefinitions(HomePageContext pageContext)
+        public HomeStepDefinitions(HomeFixture fixture)
         {
-            _pageContext = pageContext;
+            _fixture = fixture;
         }
 
         [Given(@"I am currently on the counter page")]
         public async Task GivenIAmCurrentlyOnTheCounterPage()
         {
-            await _pageContext.NavigateAsync();
-            await _pageContext.ClickCounterNavLink();
-            await _pageContext.GetCounterPageTitle();
+            await _fixture.NavigateAsync();
+            await _fixture.ClickCounterNavLink();
+            await _fixture.GetCounterPageTitle();
         }
 
 
         [When(@"when I click on the home item in the left hand nav")]
         public async Task WhenWhenIClickOnTheHomeItemInTheLeftHandNav()
         {
-            await _pageContext.ClickHomeNavLink();
+            await _fixture.ClickHomeNavLink();
         }
 
         [Then(@"I am taken to the home page")]
         public async Task ThenIAmTakenToTheHomePage()
         {
-            var title = await _pageContext.GetHomePageTitle();
+            var title = await _fixture.GetHomePageTitle();
 
-            _pageContext.Page.Url.Should().Be(_pageContext.PagePath);
+            _fixture.Page.Url.Should().Be(_fixture.PagePath);
         }
     }
 }

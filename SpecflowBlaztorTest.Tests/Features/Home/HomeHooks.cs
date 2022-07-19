@@ -1,5 +1,4 @@
 ﻿using BoDi;
-using Microsoft.Playwright;
 using SpecflowBlaztorTest.Tests.Common;
 using SpecflowBlaztorTest.Tests.PageObjects;
 using TechTalk.SpecFlow;
@@ -8,12 +7,12 @@ namespace SpecflowBlaztorTest.Tests.Features.Navigation
 {
     [Binding]
     [Scope(Feature = "Home")]
-    public class HomeHooks: AbstractHooks
+    public class HomeHooks: PlaywrightHooks
     {
         [BeforeScenario()]
-        public async Task BeforeBasketScenario(IObjectContainer container)
+        public async Task BeforeScenario(IObjectContainer container)
         {
-            await RegisterPlayWright<HomePageContext>(container);
+            await RegisterPlayWright<HomeFixture>(container);
         }
 
         [AfterScenario]

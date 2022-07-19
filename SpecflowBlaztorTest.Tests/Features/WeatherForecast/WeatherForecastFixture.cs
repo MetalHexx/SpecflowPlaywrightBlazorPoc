@@ -3,7 +3,7 @@ using SpecflowBlaztorTest.Tests.Common;
 
 namespace SpecflowBlaztorTest.Tests.PageObjects
 {
-    public class WeatherForecastPageContext : AbstractPageContext
+    public class WeatherForecastFixture : PlaywrightFixture
     {
         public override string PagePath => PagePaths.WeatherForecast;
         public string HomePagePath => PagePaths.Home;
