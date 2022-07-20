@@ -8,4 +8,9 @@ An experiment using Specflow for BDD style test cases in combination with PlayWr
 
 ## Command line usage:
 - To run the application, in the SpecflowBlazorTest directory, run: dotnet run
-- To run the tests, in the SpecflowBlazorTest.Tests directory, run: dotnet test
+- To run the tests, in the SpecflowBlazorTest.Tests directory
+  - On the first run only:  
+    - Run: dotnet build
+    - From Powershell Run: .\bin\Debug\net6.0\playwright.ps1 install
+      - This will install the browser testing dependencies
+- Run: dotnet test
