@@ -13,4 +13,4 @@ An experiment using Specflow for BDD style test cases in combination with PlayWr
     - Run: dotnet build
     - From Powershell Run: .\bin\Debug\net6.0\playwright.ps1 install
       - This will install the browser testing dependencies
-- Run: dotnet test
+  - Run: dotnet test
